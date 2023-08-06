@@ -3,17 +3,25 @@
 // convenience to get you started writing code faster.
 //
 
-export class Allergies {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+class Allergies {
+  constructor(value) {
+    this.allergies = ["eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"];
+    this.convertBinary = (value >>> 0).toString(2);
   }
 
   list() {
-    throw new Error('Remove this statement and implement this function');
+    let allergiesList = [];
+    for (let i = this.convertBinary.length - 1; i >= 0; i--) {
+      if (this.convertBinary[i] == 1) {
+        allergiesList.push(this.allergies[this.convertBinary.length - 1 - i]);
+      }
+    }
+
+    return allergiesList;
   }
 
-  allergicTo() {
-    throw new Error('Remove this statement and implement this function');
+  allergicTo(item) {
+    return this.list().includes(item);
   }
 }
-
+module.exports= {Allergies}
